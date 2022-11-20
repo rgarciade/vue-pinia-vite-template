@@ -1,27 +1,27 @@
 <script  lang="ts" setup>
-  import { key } from '@/status';
   import { ref } from 'vue';
-  import { useStore } from 'vuex';
-  
+import { useExampleStatusStore } from '@/status/exampleStatus/index';
+
 
   defineProps<{
     msg: string;
   }>();
 
-  const store = useStore(key)
+  const store = useExampleStatusStore();
+
 
   const name:string = 'HelloWorld';
   const count = ref(0);
 
   const changeText = () => {
-    store.dispatch('changeTextoPrueba', `new texts ${count.value}`);
+    store.changeTextoPrueba(`new texts ${count.value}`);
   }
 
 </script>
 
 <template>
   <h1>aa{{ msg }}</h1>
-  <h1>{{name}}--{{ store.state.textoPrueba }}</h1>
+  <h1>{{name}}--{{ store.textoPrueba }}</h1>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
