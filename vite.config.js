@@ -10,6 +10,6 @@ export default defineConfig({
   },
   plugins: [vue()],
   build: {
-    target: 'es2021',
+    target: 'es2022',
   },
 })
