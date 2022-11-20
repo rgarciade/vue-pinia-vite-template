@@ -1,28 +1,24 @@
-<script  lang="ts" setup>
-  import { ref } from 'vue';
-import { useExampleStatusStore } from '@/status/exampleStatus/index';
-
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import { useExampleStatusStore } from '@/status/exampleStatus/index'
 
   defineProps<{
-    msg: string;
-  }>();
+    msg: string
+  }>()
 
-  const store = useExampleStatusStore();
+  const store = useExampleStatusStore()
 
-
-  const name:string = 'HelloWorld';
-  const count = ref(0);
+  const name: string = 'HelloWorld'
+  const count = ref(0)
 
   const changeText = () => {
-    store.changeTextoPrueba(`new texts ${count.value}`);
+    store.changeTextoPrueba(`new texts ${count.value}`)
   }
-
 </script>
 
 <template>
   <h1>aa{{ msg }}</h1>
-  <h1>{{name}}--{{ store.textoPrueba }}</h1>
-
+  <h1>{{ name }}--{{ store.textoPrueba }}</h1>
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
@@ -47,7 +43,7 @@ import { useExampleStatusStore } from '@/status/exampleStatus/index';
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
+  .read-the-docs {
+    color: #888;
+  }
 </style>
