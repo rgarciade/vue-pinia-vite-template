@@ -7,7 +7,7 @@ export const get = async (url: string) => {
     method: 'GET',
     headers,
   })
-  response.json()
+  return response.json()
 }
 
 export const post = async (url: string, body: JSON) => {
@@ -16,7 +16,7 @@ export const post = async (url: string, body: JSON) => {
     headers,
     body: JSON.stringify(body),
   })
-  response.json()
+  return response.json()
 }
 
 export const put = async (url: string, body: JSON) => {
@@ -25,7 +25,7 @@ export const put = async (url: string, body: JSON) => {
     headers,
     body: JSON.stringify(body),
   })
-  response.json()
+  return response.json()
 }
 
 export const path = async (url: string) => {
@@ -33,7 +33,7 @@ export const path = async (url: string) => {
     method: 'PATH',
     headers,
   })
-  response.json()
+  return response.json()
 }
 
 export const del = async (url: string) => {
@@ -41,5 +41,5 @@ export const del = async (url: string) => {
     method: 'DELETE',
     headers,
   })
-  response.json()
+  return response.json()
 }
