@@ -1,35 +1,27 @@
-<script  lang="ts">
-import { key } from '@/status';
-import { computed, defineComponent, ref } from 'vue';
-import { useStore } from 'vuex';
+<script  lang="ts" setup>
+  import { key } from '@/status';
+  import { ref } from 'vue';
+  import { useStore } from 'vuex';
+  
 
-export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  setup() {
-    const store = useStore(key)
-    console.log('store',store)
-    const count = ref(0)
-    //const double = computed(() => count.value * 2)
+  defineProps<{
+    msg: string;
+  }>();
 
-    const changeText = () => {
-      store.dispatch('changeTextoPrueba', 'new text')
-    }
-    return {
-      count,
-      store,
-      textoPrueba: store.state.textoPrueba,
-      changeText
-    }
+  const store = useStore(key)
+
+  const name:string = 'HelloWorld';
+  const count = ref(0);
+
+  const changeText = () => {
+    store.dispatch('changeTextoPrueba', `new texts ${count.value}`);
   }
-})
+
 </script>
 
 <template>
   <h1>aa{{ msg }}</h1>
-  <h1>aa{{ store.state.textoPrueba }}</h1>
+  <h1>{{name}}--{{ store.state.textoPrueba }}</h1>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
